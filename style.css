@@ -1,0 +1,621 @@
+body {
+
+    background-color: #8B5E3C; /* wooden houtbruine-kleur */
+}
+
+.hero {
+    position: relative; /* Maakt .hero het referentiepunt voor absolute elementen */
+}
+
+.hero img {
+    width: 100%;  /* Afbeelding neemt de volledige breedte van .hero in */
+    display: block;/* Zorgt dat de afbeelding als block wordt weergegeven */
+}
+
+nav ul {
+    display: flex;/* Zet de li-elementen naast elkaar */
+    justify-content: center; /* Centreert de navigatie horizontaal */
+    gap: 50px; /* Ruimte tussen de menu-items */
+
+    list-style: none; /* verwijdert de bulletpoints */
+    margin: 0; /* Verwijdert standaard de marge = verplicht voor geen conflicten */
+    padding: 0; /* Verwijdert standaard de padding = verplicht voor geen conflicten*/
+}
+
+nav {
+    background-color: rgba(70, 45, 25, 0.65);/* Warme bruine kleur met 65% transparantie */
+    padding: 40px 0;  /* Ruimte boven en onder */
+    width: 100%; 
+}
+
+nav a {
+    color: #f0d08a;
+    text-decoration: none; /* Geen std underline */ 
+    font-size: 20px; /* tekstgrootte */
+    letter-spacing: 3px; /* Ruimte tussen de letters */ 
+}
+
+.About {
+    display: flex;/* Maakt de About-sectie een flex-container */
+    font-family: Georgia, serif; /* Elegant lettertype voor de volledige About-sectie */
+    font-size: 45px; /* Stelt de standaard tekstgrootte binnen de About-sectie in op 45px */
+    margin-top: 45px; /* Voegt 45px ruimte toe boven de About-sectie */
+}
+.About h1{
+    font-size: 35px;/* Stelt de lettergrootte van de h1-titel binnen de About-sectie in op 35px */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.About p {
+    font-family:Arial, Helvetica, sans-serif; /* Elegant lettertype voor de About-tekst */
+    font-size: 20px; /* Tekstgrootte */
+    line-height: 1; /* Ruimte tussen de regels */
+}
+
+.About img {
+    width: 50%;/* Stelt de breedte van de afbeelding in op 50% van de beschikbare breedte */
+    display: block; /* Zorgt ervoor dat de afbeelding als een block-element wordt weergegeven */
+
+    border-radius: 12px;/* Maakt de hoeken van de afbeelding 12px afgerond */
+}
+
+.About-text {
+    width: 50%; /* Geeft het tekstblok een breedte van 50% van de beschikbare ruimte */
+}
+
+.About-content{
+    display: flex;/* Zet de directe elementen binnen About-content naast elkaar */
+    align-items: center; /* Centreert de elementen verticaal ten opzichte van elkaar */
+    justify-content: space-between; /* Verdeelt de beschikbare ruimte tussen tekst en afbeelding */
+    gap: 60px; /* Creëert 60px ruimte tussen het tekstblok en de afbeelding */
+
+    border: 1px solid rgba(240, 208, 138, 0.6);/* Voegt een dunne, lichtgouden rand rond de container toe */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Voegt een zachte schaduw toe onder en rond de container */
+    border-radius: 30px;/* Maakt de hoeken van de container 30px afgerond */
+
+    padding: 50px;/* Creëert 50px binnenruimte tussen de inhoud en de rand van de container */
+    overflow: hidden; /* Zorgt dat NIETS buiten de afgeronde hoeken komt */ 
+}
+
+.About-images {
+    width: 50%;/* Geeft het element met de class "About-image" een breedte van 50% van de beschikbare ruimte */
+    display: flex; /* Gebruik flexbox */
+    flex-direction: column; /* Zet de fot'os ONDER elkaaar */
+    gap: 30px; /* Ruimte tussen de foto's */
+}
+
+.About-images img{
+    width: 100%;/* Geeft de afbeelding een breedte van 50% van de beschikbare ruimte */
+    display: block; /* Zorgt ervoor dat de afbeelding als een block-element wordt weergegeven */
+    height: auto; /* Hoogte van de foto */
+    object-fit: contain; /* Snijdt niets van de foto af */
+    border-radius: 18px; /* Afgeronde hoeken */
+    border: 1px solid #d2b48c; /* Subtiele rand */
+
+}
+
+/* Container voor de foto's rechts */
+.About-images{
+    width: 50%; /* Foto's nemen de rechterkant in */
+    display: flex; /* Gebruikt flexbox */
+    flex-direction: column; /* Zet de DE FOTO'S ONDER ELKAAR */
+    gap: 100px; /* Duidelijke ruimte tussen foto 1 en foto 2 */
+    
+}
+
+
+/* Container van de Business-sectie */
+.Business-content {
+    display: flex; /* Zet de afbeelding en tekst naast elkaar */
+    align-items: center;  /* Centreert de inhoud verticaal */
+    gap: 60px;  /* Ruimte tussen de afbeelding en de tekst */
+    font-size: 25px; 
+}
+
+/* Container van de Business-afbeelding */
+.Business-image {
+    width: 120%;  /* De afbeelding neemt de helft van de beschikbare ruimte in */
+}
+
+/* De afbeelding zelf */
+.Business-image img {
+    width: 100%;/* De afbeelding vult de breedte van zijn container */
+    display: block;/* Voorkomt ongewenste ruimte onder de afbeelding */
+    border-radius: 18px; /* Afgeronde hoeken */
+    border: 1px solid #d2b48c; /* Subtiele beige rand */
+}
+
+/* Technologie Section */ 
+
+.Technology {
+    padding: 90px 3%; /* Algemene ruimte rondom de Technology-sectie */
+    border: 1px solid #c9a66b; /* Dunne goudkleurige rand */
+    border-radius: 30px 30px 30px 30px; /* Afgeronde bovenhoeken */
+
+}
+
+.Technology h1{
+    margin-bottom: 30px; /* Ruimte onder de ondertittel */
+    font-size: 45px; /* Maakt de titel groter */
+    margin-top: -30px; /* Schuift de titel omhoog */
+}
+
+/* Technology titel */
+.Technology h2 {
+    margin-bottom: 5px; /* Kleine ruimte onder de titel */
+}
+
+/* Tekst links en afbeelding rechts */
+.Technology-content {
+    display: flex; /* Zet tekst en afbeelding naast elkaar */
+    align-items: center; /* Centreert tekst en afbeelding verticaal */
+    justify-content: space-between; /*verdeelt de ruimte of /* Tekst links, foto rechts */ */ 
+    gap: 50px; /* Ruimte tussen tekst en afbeelding */
+}
+
+/* Tekstgedeelte links */
+.Technology-text {
+    width: 55%; /* Tekst neemt de helft van de ruimte in */
+}
+
+.Technology-text p {
+    font-family: Arial, Helvetica, sans-serif; /* Leesbaar lettertype */
+    font-size: 20px; /* Grootte van de tekst */
+    line-height: 1.5; /* Meer ruimte tussen tekstregels */
+    margin-bottom: 35px; /* Ruimte tussen de paragrafen */ 
+
+}
+
+/* Afbeeldingscontainer rechts */
+.Technology-image {
+    width: 40% !important; /* Afbeelding neemt de helft van de ruimte in */
+    display: flex; /* Zet de foto's in een flex-container */
+    height: 275px; /* Hoogte van het afbeeldingskader */
+    overflow: hidden; /* Snijdt de afbeelding netjes bij */
+    gap: 30px; /* Ruimte tussen de twee foto's */
+    border-radius: 18px;
+    box-sizing: border-box; 
+   
+}
+
+/* Afbeelding zelf */
+.Technology-image img {
+    width: 100% !important; /* Afbeelding vult de volledige breedte */
+    height: 100%; /* Afbeelding vult de volledige hoogte */
+    object-fit: cover; /* Snijdt afbeelding bij zonder vervorming */
+    display: block; /* Voorkomt extra ruimte onder de afbeelding */
+    border: 1px solid #d2b48c; /* Mooie subtiele rand */
+    border-radius: 18px; /* Afgeronde hoeken */
+   
+    overflow: hidden; 
+}
+
+
+/* Contactformulier*/
+
+/*contact section */ /* Momenteel vul ik hier nog niets */
+.Contact {
+    display: flex; /* Zet formulier en foto naast elkaar */
+    gap: 65px;
+    border: 1px solid rgba(240, 208, 138, 0.6);/* Voegt een dunne, lichtgouden rand rond de container toe */
+    padding: 35px; /* Ruimte tussen de inhoud en de rand */
+    box-sizing: border-box; 
+    align-items: center; /* Centreert ze verticaal */
+}
+
+/* Het formulier ZELF */ /* OPGELET: Zoek een <form> die binnen een element met class Contact zit. */
+.Contact form{
+    display: flex; /* Zet alle elementen onder elkaar */
+    flex-direction: column;   /* Richt de elementen verticaal */
+    gap: 15px;  /* Ruimte tussen de elementen vertikaal */
+    max-width: 600px; /* Nee, max-width is niet verplicht. Het is vooral bedoeld om te voorkomen dat je formulier op een groot scherm te breed wordt. */
+    Margin-left: auto;  /* Duwt het formulier naar rechts */
+
+}
+
+.Contact h1 {
+    margin-left: auto; /* Dut de H1 naar rzchts */
+    width: 600px; 
+}
+
+.Contact-content {
+    width: 50%; /* Neemt de helft van de Contact-sectie in */
+  
+    border: 1px solid rgba(240, 138, 145, 0.6);
+    border-radius: 30px;
+    padding: 50px; /* Ruimte tussen de inhoud en de rand */
+    border: 1px solid rgba(240, 208, 138, 0.6);/* Voegt een dunne, lichtgouden rand rond de container toe */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Zachte schaduw rond de rand */
+}
+
+/* Container van de foto */
+.Contact > div:first-child {
+    width: 45%;                 /* Geeft de foto-container 45% van de ruimte */
+}
+
+
+/* De foto zelf */
+.Contact img {
+    width: 100%;                /* Laat de foto de container volledig vullen */
+    display: block;             /* Verwijdert ongewenste ruimte onder de foto */
+    border-radius: 18px; /* Afgeronde hoeken */
+    border: 1px solid #d2b48c; /* Subtiele beige rand */
+}
+
+/* Het tekstvak voor het bericht */
+.Contact textarea {
+    width: 100%;             /* Laat het tekstvak de volledige breedte gebruiken */
+    height: 120px;           /* Maakt het tekstvak groot genoeg voor een bericht */
+    resize: none;            /* Voorkomt dat de bezoeker het tekstvak groter maakt */
+    box-sizing: border-box;  /* Houdt de breedte binnen de beschikbare ruimte */
+}
+
+.Footer {
+    flex-direction: column;   /* Richt de elementen verticaal */
+    margin-top: 70px; /* Ruimte boven de footer */
+    padding: 45px 5% 25px; /* Ruimte binnen de footer */
+    border-top: 1px solid rgba(240, 208, 138, 0.5); /* Subtiele lijn bovenaan */
+}
+
+/* Titel van de footer */
+.Footer h2 {
+    margin-bottom: 15px; /* Ruimte onder de titel */
+    font-size: 30px; /* Grootte van Maxem Group */
+}
+
+/* Tekst in de footer */
+.Footer p {
+    margin: 10px 0; /* Ruimte tussen de teksten */
+    font-size: 15px; /* Kleinere, rustigere tekst */
+}
+
+/* E-mail */
+.Footer a {
+    color: black; /* Kleur van de link */
+    text-decoration: none; /* Geen onderlijning */
+}
+
+/* Copyright */
+.Footer p:last-child {
+    margin-top: 30px; /* Meer ruimte boven copyright */
+    font-size: 12px; /* Klein copyright */
+    opacity: 0.6; /* Subtiel */
+}
+
+
+
+
+
+
+/* =================================================
+   DEFINITIEVE MOBIELE VERSIE
+   ================================================= */
+
+@media (max-width: 768px) {
+
+    /* =========================
+       ALGEMEEN
+       ========================= */
+
+    * {
+        box-sizing: border-box; /* Houdt padding en borders binnen de breedte */
+    }
+
+    body {
+        margin: 0; /* Verwijdert standaard marge */
+        width: 100%; /* Gebruikt de volledige schermbreedte */
+        overflow-x: hidden; /* Voorkomt horizontaal scrollen */
+        background-color: #8B5E3C; /* Behoudt de houtbruine achtergrond */
+    }
+
+
+    /* =========================
+       NAVIGATIE
+       ========================= */
+
+    nav {
+        width: 100%; /* Navbar gebruikt de volledige breedte */
+        padding: 18px 8px; /* Compactere navbar op mobiel */
+        background-color: rgba(70, 45, 25, 0.65); /* Behoudt de bruine transparante kleur */
+    }
+
+    nav ul {
+        display: flex; /* Zet de menu-items naast elkaar */
+        flex-direction: row; /* Houdt de items horizontaal */
+        justify-content: center; /* Centreert de navigatie */
+        align-items: center; /* Centreert de items verticaal */
+        gap: 10px; /* Ruimte tussen de menu-items */
+        list-style: none; /* Verwijdert bolletjes */
+        margin: 0; /* Verwijdert standaard marge */
+        padding: 0; /* Verwijdert standaard padding */
+        width: 100%; /* Gebruikt de beschikbare breedte */
+        white-space: nowrap; /* Voorkomt dat woorden naar een tweede regel gaan */
+    }
+
+    nav li {
+        margin: 0; /* Verwijdert standaard marge */
+        padding: 0; /* Verwijdert standaard padding */
+        flex-shrink: 1; /* Laat items indien nodig iets verkleinen */
+    }
+
+    nav a {
+        display: block; /* Maakt de volledige link klikbaar */
+        color: #f0d08a; /* Behoudt de gouden kleur */
+        text-decoration: none; /* Verwijdert onderlijning */
+        font-size: 14px; /* Compacte tekst voor mobiel */
+        letter-spacing: 1px; /* Behoudt de elegante letterafstand */
+        white-space: nowrap; /* Houdt elk menu-item op één regel */
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+        width: 100%; /* Hero vult het scherm */
+        position: relative; /* Behoudt de bestaande structuur */
+    }
+
+    .hero img {
+        width: 100%; /* Foto vult de breedte */
+        height: auto; /* Behoudt de verhouding */
+        display: block; /* Verwijdert ruimte onder de foto */
+    }
+
+
+    /* =========================
+       ABOUT
+       ========================= */
+
+    .About {
+        display: block; /* Zet de inhoud onder elkaar */
+        width: calc(100% - 30px); /* Houdt 15px ruimte aan beide kanten */
+        margin: 30px 15px 0; /* Ruimte boven de About-sectie */
+        font-family: Georgia, serif; /* Behoudt je desktop-lettertype */
+        font-size: 20px; /* Past de algemene tekstgrootte aan */
+    }
+
+    .About h1 {
+        font-size: 32px; /* Maakt de titel passend voor mobiel */
+        margin-bottom: 20px; /* Ruimte onder de titel */
+    }
+
+    .About p {
+        font-family: Arial, Helvetica, sans-serif; /* Behoudt je tekstlettertype */
+        font-size: 17px; /* Leesbare tekst op mobiel */
+        line-height: 1.6; /* Geeft voldoende ruimte tussen regels */
+    }
+
+    .About-content {
+        display: flex; /* Behoudt de bestaande flexstructuur */
+        flex-direction: column; /* Tekst en foto's onder elkaar */
+        align-items: stretch; /* Laat alles de beschikbare breedte gebruiken */
+        gap: 30px; /* Ruimte tussen tekst en foto's */
+        width: 100%; /* Gebruikt de beschikbare breedte */
+        padding: 25px; /* Ruimte binnen de border */
+        border: 1px solid rgba(240, 208, 138, 0.6); /* Behoudt de gouden rand */
+        border-radius: 30px; /* Behoudt de afgeronde hoeken */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Behoudt de schaduw */
+        overflow: hidden; /* Houdt alles binnen de afgeronde hoeken */
+    }
+
+    .About-text {
+        width: 100%; /* Tekst gebruikt de volledige breedte */
+    }
+
+    .About-images {
+        width: 100%; /* Foto's gebruiken de volledige breedte */
+        display: flex; /* Gebruikt flexbox */
+        flex-direction: column; /* Foto's onder elkaar */
+        gap: 25px; /* Ruimte tussen de foto's */
+    }
+
+    .About-images img {
+        width: 100%; /* Foto vult de fotocontainer */
+        height: auto; /* Behoudt de originele verhouding */
+        display: block; /* Verwijdert ongewenste ruimte */
+        object-fit: cover; /* Zorgt voor een nette vulling */
+        border-radius: 18px; /* Afgeronde hoeken */
+        border: 1px solid #d2b48c; /* Subtiele beige rand */
+    }
+
+
+    /* =========================
+       BUSINESS
+       ========================= */
+
+    .Business-content {
+        display: flex; /* Behoudt de bestaande structuur */
+        flex-direction: column; /* Zet foto en tekst onder elkaar */
+        align-items: center; /* Centreert de inhoud */
+        gap: 30px; /* Ruimte tussen foto en tekst */
+        width: 100%; /* Gebruikt de beschikbare breedte */
+        padding: 20px; /* Ruimte aan de zijkanten */
+        font-size: 20px; /* Tekst passend voor mobiel */
+    }
+
+    .Business-image {
+        width: 100%; /* Overschrijft de desktop 120% */
+        max-width: 100%; /* Voorkomt dat de foto buiten het scherm komt */
+    }
+
+    .Business-image img {
+        width: 100%; /* Foto vult de container */
+        height: auto; /* Behoudt de verhouding */
+        display: block; /* Verwijdert ongewenste ruimte */
+        border-radius: 18px; /* Behoudt de afgeronde hoeken */
+        border: 1px solid #d2b48c; /* Behoudt de beige rand */
+    }
+
+
+    /* =========================
+       TECHNOLOGY
+       ========================= */
+
+    .Technology {
+        width: calc(100% - 30px); /* Houdt 15px ruimte aan beide kanten */
+        margin: 30px 15px 0; /* Geeft ruimte boven de sectie */
+        padding: 45px 20px; /* Past de desktop-padding aan */
+        border: 1px solid #c9a66b; /* Behoudt de gouden rand */
+        border-radius: 30px; /* Behoudt de afgeronde hoeken */
+    }
+
+    .Technology h1 {
+        font-size: 32px; /* Past de titel aan voor mobiel */
+        margin-bottom: 20px; /* Ruimte onder de titel */
+    }
+
+    .Technology h2 {
+        font-size: 21px; /* Maakt de subtitel passend */
+        margin-bottom: 20px; /* Ruimte onder de subtitel */
+    }
+
+    .Technology-content {
+        display: flex; /* Behoudt flexbox */
+        flex-direction: column; /* Tekst boven foto */
+        align-items: stretch; /* Gebruikt de beschikbare breedte */
+        gap: 30px; /* Ruimte tussen tekst en foto */
+    }
+
+    .Technology-text {
+        width: 100%; /* Tekst gebruikt volledige breedte */
+    }
+
+    .Technology-text p {
+        font-family: Arial, Helvetica, sans-serif; /* Leesbaar lettertype */
+        font-size: 17px; /* Geschikte tekstgrootte */
+        line-height: 1.6; /* Meer ruimte tussen regels */
+        margin-bottom: 25px; /* Ruimte tussen paragrafen */
+    }
+
+    .Technology-image {
+        width: 100% !important; /* Foto gebruikt volledige mobiele breedte */
+        height: 275px; /* Behoudt jouw gekozen hoogte */
+        display: flex; /* Behoudt flexbox */
+        overflow: hidden; /* Houdt foto binnen de afgeronde rand */
+        gap: 25px; /* Ruimte tussen foto's indien nodig */
+        border-radius: 18px; /* Afgeronde hoeken */
+    }
+
+    .Technology-image img {
+        width: 100% !important; /* Foto vult de container */
+        height: 100%; /* Foto vult de hoogte van het kader */
+        object-fit: cover; /* Vult het kader zonder vervorming */
+        display: block; /* Verwijdert ongewenste ruimte */
+        border: 1px solid #d2b48c; /* Beige rand */
+        border-radius: 18px; /* Afgeronde hoeken */
+    }
+
+
+    /* =========================
+       CONTACT
+       ========================= */
+
+    .Contact {
+        display: flex; /* Behoudt flexbox */
+        flex-direction: column; /* Foto en formulier onder elkaar */
+        gap: 30px; /* Ruimte tussen beide onderdelen */
+        width: calc(100% - 30px); /* Houdt 15px ruimte aan beide kanten */
+        margin: 30px 15px 0; /* Ruimte boven de sectie */
+        padding: 25px; /* Ruimte binnen de container */
+        border: 1px solid rgba(240, 208, 138, 0.6); /* Gouden rand */
+        border-radius: 30px; /* Afgeronde hoeken */
+        box-sizing: border-box; /* Houdt alles binnen de breedte */
+        align-items: stretch; /* Laat alles de beschikbare breedte gebruiken */
+    }
+
+    .Contact > div:first-child {
+        width: 100%; /* Foto gebruikt volledige breedte */
+    }
+
+    .Contact img {
+        width: 100%; /* Foto vult de container */
+        height: auto; /* Behoudt de verhouding */
+        display: block; /* Verwijdert ongewenste ruimte */
+        border-radius: 18px; /* Afgeronde hoeken */
+        border: 1px solid #d2b48c; /* Beige rand */
+    }
+
+    .Contact-content {
+        width: 100%; /* Formulier gebruikt volledige breedte */
+        padding: 25px; /* Ruimte binnen het formulier */
+        border: 1px solid rgba(240, 208, 138, 0.6); /* Gouden rand */
+        border-radius: 30px; /* Afgeronde hoeken */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Zachte schaduw */
+        box-sizing: border-box; /* Houdt padding binnen de breedte */
+    }
+
+    .Contact h1 {
+        width: 100%; /* Titel gebruikt de beschikbare breedte */
+        margin: 0 0 20px 0; /* Ruimte onder de titel */
+        font-size: 32px; /* Mobiele titelgrootte */
+    }
+
+    .Contact form {
+        display: flex; /* Maakt het formulier flexibel */
+        flex-direction: column; /* Velden onder elkaar */
+        gap: 15px; /* Ruimte tussen de velden */
+        width: 100%; /* Formulier vult de container */
+        max-width: none; /* Verwijdert desktop-beperking */
+        margin: 0; /* Verwijdert automatische marge */
+        box-sizing: border-box; /* Houdt alles binnen de breedte */
+    }
+
+    .Contact input {
+        width: 100%; /* Input vult het formulier */
+        padding: 14px; /* Ruimte binnen het veld */
+        box-sizing: border-box; /* Houdt padding binnen de breedte */
+    }
+
+    .Contact textarea {
+        width: 100%; /* Tekstvak vult het formulier */
+        height: 120px; /* Voldoende ruimte voor bericht */
+        padding: 14px; /* Ruimte binnen het tekstvak */
+        resize: none; /* Voorkomt uitrekken */
+        box-sizing: border-box; /* Houdt alles binnen de breedte */
+    }
+
+    .Contact button {
+        width: 100%; /* Knop vult het formulier */
+        padding: 14px; /* Maakt de knop makkelijk aanklikbaar */
+        box-sizing: border-box; /* Houdt de knop binnen de container */
+    }
+
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    .footer {
+        width: 100%; /* Footer gebruikt volledige breedte */
+        margin-top: 60px; /* Ruimte boven de footer */
+        padding: 35px 20px 20px; /* Ruimte binnen de footer */
+        border-top: 1px solid rgba(240, 208, 138, 0.5); /* Subtiele bovenlijn */
+        box-sizing: border-box; /* Houdt alles binnen de schermbreedte */
+    }
+
+    .footer h2 {
+        margin-bottom: 15px; /* Ruimte onder Maxem Group */
+        font-size: 26px; /* Iets kleinere titel op mobiel */
+    }
+
+    .footer p {
+        margin: 10px 0; /* Ruimte tussen de teksten */
+        font-size: 15px; /* Leesbare footertekst */
+        line-height: 1.5; /* Ruimte tussen regels */
+    }
+
+    .footer a {
+        color: black; /* Behoudt de bestaande kleur */
+        text-decoration: none; /* Geen onderlijning */
+        font-size: 14px; /* Compacte links */
+    }
+
+}
+
+
+
+
+
+
+
