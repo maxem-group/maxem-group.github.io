@@ -1,621 +1,1475 @@
-body {
 
-    background-color: #8B5E3C; /* wooden houtbruine-kleur */
+/* ==========================================================
+   MAXEM GROUP — COMPLETE CORPORATE STYLESHEET
+
+   Kleuridentiteit:
+   - Houtbruin: #8B5E3C
+   - Donkerbruin: #462D19
+   - Champagnegoud: #f0d08a
+   - Warm wit: #fff8ed
+
+   Indeling:
+   1. Variabelen
+   2. Algemene basis
+   3. Navigatie
+   4. Hero-afbeelding
+   5. Gedeelde sectiestijlen
+   6. About
+   7. Business
+   8. Technology
+   9. Contact
+   10. Footer
+   11. Tablet
+   12. Mobiel
+   13. Toegankelijkheid
+   ========================================================== */
+
+
+/* ==========================================================
+   1. DESIGN VARIABLES
+   Centrale instellingen voor kleuren, breedtes en schaduwen.
+   ========================================================== */
+
+:root {
+    --color-wood: #8B5E3C;
+    /* Hoofdkleur van de website. */
+
+    --color-wood-dark: #462D19;
+    /* Donkere bruine tint voor diepte en contrast. */
+
+    --color-gold: #f0d08a;
+    /* Champagnegoud voor accenten en kleine titels. */
+
+    --color-gold-muted: #c9a66b;
+    /* Zachtere goudkleur voor subtiele randen. */
+
+    --color-sand: #d2b48c;
+    /* Zandkleur voor kaders rond foto's. */
+
+    --color-text: #fff8ed;
+    /* Warm wit voor koppen en belangrijke tekst. */
+
+    --color-text-soft: rgba(255, 248, 237, 0.88);
+    /* Warm wit met 88% dekking voor gewone paragrafen. */
+
+    --color-panel: rgba(70, 45, 25, 0.20);
+    /* Transparant bruin voor panelen; de laatste waarde is de dekking. */
+
+    --color-border: rgba(240, 208, 138, 0.48);
+    /* Goudkleurige rand met 48% dekking. */
+
+    --shadow-soft: 0 18px 45px rgba(30, 18, 9, 0.16);
+    /* Schaduw: horizontale verschuiving 0, verticale verschuiving 18px,
+       vervaging 45px en 16% dekking. */
+
+    --radius-large: 28px;
+    /* Grote afronding voor volledige sectiepanelen. */
+
+    --radius-medium: 18px;
+    /* Kleinere afronding voor afbeeldingen en kleinere kaders. */
+
+    --content-width: 1440px;
+    /* Maximale breedte van de hoofdinhoud op grote schermen. */
 }
 
+
+/* ==========================================================
+   2. ALGEMENE BASIS
+   Standaard browsermarges en typografie uniform instellen.
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* Padding en borders tellen mee binnen de opgegeven breedte.
+       Dit maakt berekeningen met kolommen voorspelbaarder. */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Navigatielinks scrollen vloeiend naar hun sectie. */
+
+    scroll-padding-top: 24px;
+    /* Houdt 24px ruimte boven het doel bij intern scrollen. */
+}
+
+body {
+    margin: 0;
+    /* Verwijdert de standaard buitenmarge van de browser. */
+
+    min-width: 320px;
+    /* Voorkomt een extreem smalle layout op kleine telefoons. */
+
+    background-color: var(--color-wood);
+    /* Gebruikt de centrale houtbruine huisstijlkleur. */
+
+    color: var(--color-text);
+    /* Standaardtekstkleur is warm wit. */
+
+    font-family: Arial, Helvetica, sans-serif;
+    /* Arial is de eerste keuze; de andere fonts zijn fallbacks. */
+
+    font-size: 16px;
+    /* Basislettergrootte van 16 CSS-pixels. */
+
+    line-height: 1.7;
+    /* Regelafstand is 1,7 keer de lettergrootte voor leesbaarheid. */
+
+    -webkit-font-smoothing: antialiased;
+    /* Verfijnt letterweergave in browsers die deze instelling ondersteunen. */
+
+    text-rendering: optimizeLegibility;
+    /* Vraagt de browser om de leesbaarheid van tekst te optimaliseren. */
+}
+
+img {
+    display: block;
+    /* Verwijdert de kleine standaardruimte onder inline-afbeeldingen. */
+
+    max-width: 100%;
+    /* Een afbeelding kan nooit breder worden dan haar container. */
+}
+
+a {
+    color: var(--color-gold);
+    /* Goud is de standaardkleur van hyperlinks. */
+}
+
+p {
+    margin: 0 0 1.2em;
+    /* Geen bovenmarge; ondermarge is 1,2 keer de tekstgrootte. */
+
+    color: var(--color-text-soft);
+    /* Gewone paragrafen krijgen de zachtere warmwitte kleur. */
+}
+
+p:last-child {
+    margin-bottom: 0;
+    /* Voorkomt onnodige extra ruimte na de laatste paragraaf. */
+}
+
+strong {
+    color: var(--color-text);
+    /* Belangrijke woorden krijgen de helderste tekstkleur. */
+
+    font-weight: 700;
+    /* 700 betekent vetgedrukte tekst. */
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    /* Verwijdert standaardmarges van de koppen. */
+
+    color: var(--color-text);
+    /* Koppen blijven warm wit. */
+
+    font-family: Georgia, "Times New Roman", serif;
+    /* Serif-lettertype geeft de koppen een meer zakelijke uitstraling. */
+
+    font-weight: 500;
+    /* Middelzwaar gewicht voorkomt dat de koppen te zwaar ogen. */
+
+    line-height: 1.15;
+    /* Compactere regelafstand voor grote koppen. */
+
+    text-wrap: balance;
+    /* Probeert meer evenwichtige regelafbrekingen te maken. */
+}
+
+h1,
+h2 {
+    font-size: clamp(2.1rem, 4vw, 3.4rem);
+    /* Minimaal 2,1rem, flexibel 4vw, maximaal 3,4rem.
+       Zo groeien koppen mee met het scherm zonder onbeperkt te vergroten. */
+
+    letter-spacing: -0.035em;
+    /* Letters staan iets dichter bij elkaar voor een moderne kopstijl. */
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-text);
+    /* Duidelijke focusrand voor toetsenbordgebruikers. */
+
+    outline-offset: 4px;
+    /* Plaatst de focusrand 4px buiten het element. */
+}
+
+
+/* ==========================================================
+   3. NAVIGATIE
+   Gecentreerde links met een subtiele goudkleurige onderlijn.
+   ========================================================== */
+
+.site-header {
+    width: 100%;
+    /* Header vult de volledige beschikbare breedte. */
+
+    overflow: clip;
+    /* Voorkomt horizontale uitschieters zonder normale scroll te forceren. */
+}
+
+.site-nav {
+    position: relative;
+    /* Biedt een positioneringscontext voor eventuele latere elementen. */
+
+    z-index: 2;
+    /* Plaatst de navigatie boven eventuele overlappende inhoud. */
+
+    width: 100%;
+    /* Navigatiebalk loopt over de volledige breedte. */
+
+    padding: 22px 24px;
+    /* 22px boven/onder en 24px links/rechts voor ademruimte. */
+
+    background-color: rgba(70, 45, 25, 0.82);
+    /* Donkerbruin met 82% dekking. */
+
+    border-bottom: 1px solid rgba(240, 208, 138, 0.26);
+    /* Dunne goudkleurige scheidingslijn met 26% dekking. */
+}
+
+.site-nav ul {
+    display: flex;
+    /* Flexbox zet de navigatie-items in een flexibele rij. */
+
+    flex-wrap: wrap;
+    /* Links mogen naar een volgende regel wanneer er te weinig ruimte is. */
+
+    justify-content: center;
+    /* Centreert de links horizontaal. */
+
+    align-items: center;
+    /* Lijnt de links verticaal uit. */
+
+    gap: 12px clamp(18px, 3.4vw, 48px);
+    /* Verticale afstand: 12px.
+       Horizontale afstand: minimaal 18px, flexibel 3,4vw,
+       maximaal 48px. */
+
+    max-width: var(--content-width);
+    /* Houdt de navigatie binnen de centrale maximale breedte. */
+
+    margin: 0 auto;
+    /* Geen verticale marge; auto centreert het blok horizontaal. */
+
+    padding: 0;
+    /* Verwijdert de standaardinspringing van de lijst. */
+
+    list-style: none;
+    /* Verwijdert de standaard opsommingstekens. */
+}
+
+.site-nav a {
+    display: inline-block;
+    /* Maakt padding en de onderlijn voorspelbaar. */
+
+    padding: 5px 2px;
+    /* Kleine klikruimte rond elke navigatielink. */
+
+    color: var(--color-gold);
+    /* Navigatielinks zijn champagnegoud. */
+
+    font-size: 0.88rem;
+    /* Iets kleiner dan de standaardtekst. */
+
+    font-weight: 700;
+    /* Duidelijke, vetgedrukte navigatietekst. */
+
+    letter-spacing: 0.13em;
+    /* Extra letterafstand voor een verfijnde hoofdletterstijl. */
+
+    text-decoration: none;
+    /* Verwijdert de standaard hyperlinkonderlijn. */
+
+    text-transform: uppercase;
+    /* Toont de navigatietekst in hoofdletters. */
+
+    transition: color 180ms ease;
+    /* Kleurovergang duurt 180ms en verloopt vloeiend. */
+}
+
+.site-nav a::after {
+    display: block;
+    /* De decoratieve onderlijn staat op een eigen regel. */
+
+    width: 0;
+    /* Begint onzichtbaar in de breedte. */
+
+    height: 2px;
+    /* De goudkleurige lijn is 2px hoog. */
+
+    margin-top: 4px;
+    /* Vier pixels ruimte tussen tekst en lijn. */
+
+    background-color: var(--color-gold);
+    /* De lijn gebruikt dezelfde goudkleur als de tekst. */
+
+    content: "";
+    /* Verplicht om het pseudo-element te tonen. */
+
+    transition: width 180ms ease;
+    /* De lijn groeit geleidelijk bij hover of focus. */
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    color: var(--color-text);
+    /* De link wordt warm wit wanneer hij actief is. */
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+    width: 100%;
+    /* De onderlijn vult de volledige breedte van de link. */
+}
+
+
+/* ==========================================================
+   4. HERO — GROTE KANTOORAFBEELDING
+   Behoud de natuurlijke beeldverhouding van de originele foto.
+   ========================================================== */
+
 .hero {
-    position: relative; /* Maakt .hero het referentiepunt voor absolute elementen */
+    position: relative;
+    /* Laat eventuele toekomstige overlay-elementen positioneren. */
+
+    width: 100%;
+    /* Hero gebruikt de volledige breedte. */
+
+    background-color: var(--color-wood-dark);
+    /* Donkere achtergrond als de afbeelding nog laadt. */
 }
 
 .hero img {
-    width: 100%;  /* Afbeelding neemt de volledige breedte van .hero in */
-    display: block;/* Zorgt dat de afbeelding als block wordt weergegeven */
-}
+    display: block;
+    /* Verwijdert de standaardruimte onder de afbeelding. */
 
-nav ul {
-    display: flex;/* Zet de li-elementen naast elkaar */
-    justify-content: center; /* Centreert de navigatie horizontaal */
-    gap: 50px; /* Ruimte tussen de menu-items */
+    width: 100%;
+    /* Foto vult de volledige breedte van de hero. */
 
-    list-style: none; /* verwijdert de bulletpoints */
-    margin: 0; /* Verwijdert standaard de marge = verplicht voor geen conflicten */
-    padding: 0; /* Verwijdert standaard de padding = verplicht voor geen conflicten*/
-}
+    height: auto;
+    /* Hoogte volgt automatisch de oorspronkelijke beeldverhouding. */
 
-nav {
-    background-color: rgba(70, 45, 25, 0.65);/* Warme bruine kleur met 65% transparantie */
-    padding: 40px 0;  /* Ruimte boven en onder */
-    width: 100%; 
-}
-
-nav a {
-    color: #f0d08a;
-    text-decoration: none; /* Geen std underline */ 
-    font-size: 20px; /* tekstgrootte */
-    letter-spacing: 3px; /* Ruimte tussen de letters */ 
-}
-
-.About {
-    display: flex;/* Maakt de About-sectie een flex-container */
-    font-family: Georgia, serif; /* Elegant lettertype voor de volledige About-sectie */
-    font-size: 45px; /* Stelt de standaard tekstgrootte binnen de About-sectie in op 45px */
-    margin-top: 45px; /* Voegt 45px ruimte toe boven de About-sectie */
-}
-.About h1{
-    font-size: 35px;/* Stelt de lettergrootte van de h1-titel binnen de About-sectie in op 35px */
-    font-family: Arial, Helvetica, sans-serif;
-}
-.About p {
-    font-family:Arial, Helvetica, sans-serif; /* Elegant lettertype voor de About-tekst */
-    font-size: 20px; /* Tekstgrootte */
-    line-height: 1; /* Ruimte tussen de regels */
-}
-
-.About img {
-    width: 50%;/* Stelt de breedte van de afbeelding in op 50% van de beschikbare breedte */
-    display: block; /* Zorgt ervoor dat de afbeelding als een block-element wordt weergegeven */
-
-    border-radius: 12px;/* Maakt de hoeken van de afbeelding 12px afgerond */
-}
-
-.About-text {
-    width: 50%; /* Geeft het tekstblok een breedte van 50% van de beschikbare ruimte */
-}
-
-.About-content{
-    display: flex;/* Zet de directe elementen binnen About-content naast elkaar */
-    align-items: center; /* Centreert de elementen verticaal ten opzichte van elkaar */
-    justify-content: space-between; /* Verdeelt de beschikbare ruimte tussen tekst en afbeelding */
-    gap: 60px; /* Creëert 60px ruimte tussen het tekstblok en de afbeelding */
-
-    border: 1px solid rgba(240, 208, 138, 0.6);/* Voegt een dunne, lichtgouden rand rond de container toe */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Voegt een zachte schaduw toe onder en rond de container */
-    border-radius: 30px;/* Maakt de hoeken van de container 30px afgerond */
-
-    padding: 50px;/* Creëert 50px binnenruimte tussen de inhoud en de rand van de container */
-    overflow: hidden; /* Zorgt dat NIETS buiten de afgeronde hoeken komt */ 
-}
-
-.About-images {
-    width: 50%;/* Geeft het element met de class "About-image" een breedte van 50% van de beschikbare ruimte */
-    display: flex; /* Gebruik flexbox */
-    flex-direction: column; /* Zet de fot'os ONDER elkaaar */
-    gap: 30px; /* Ruimte tussen de foto's */
-}
-
-.About-images img{
-    width: 100%;/* Geeft de afbeelding een breedte van 50% van de beschikbare ruimte */
-    display: block; /* Zorgt ervoor dat de afbeelding als een block-element wordt weergegeven */
-    height: auto; /* Hoogte van de foto */
-    object-fit: contain; /* Snijdt niets van de foto af */
-    border-radius: 18px; /* Afgeronde hoeken */
-    border: 1px solid #d2b48c; /* Subtiele rand */
-
-}
-
-/* Container voor de foto's rechts */
-.About-images{
-    width: 50%; /* Foto's nemen de rechterkant in */
-    display: flex; /* Gebruikt flexbox */
-    flex-direction: column; /* Zet de DE FOTO'S ONDER ELKAAR */
-    gap: 100px; /* Duidelijke ruimte tussen foto 1 en foto 2 */
-    
+    max-height: none;
+    /* Geen kunstmatige maximumhoogte die de foto afsnijdt. */
 }
 
 
-/* Container van de Business-sectie */
-.Business-content {
-    display: flex; /* Zet de afbeelding en tekst naast elkaar */
-    align-items: center;  /* Centreert de inhoud verticaal */
-    gap: 60px;  /* Ruimte tussen de afbeelding en de tekst */
-    font-size: 25px; 
+/* ==========================================================
+   5. GEDEELDE SECTIESTIJLEN
+   Eén consistente breedte en stijl voor alle hoofdsecties.
+   ========================================================== */
+
+.section-shell {
+    width: min(
+        var(--content-width),
+        calc(100% - 80px)
+    );
+    /* Gebruikt maximaal 1440px.
+       Op kleinere schermen blijft 40px marge aan beide kanten over. */
+
+    margin: clamp(64px, 8vw, 112px) auto 0;
+    /* Bovenmarge: minimaal 64px, flexibel 8vw, maximaal 112px.
+       Auto-centreert de sectie horizontaal; ondermarge is 0. */
 }
 
-/* Container van de Business-afbeelding */
-.Business-image {
-    width: 120%;  /* De afbeelding neemt de helft van de beschikbare ruimte in */
+.section-heading {
+    margin-bottom: 34px;
+    /* Ruimte tussen de sectietitel en de inhoud. */
 }
 
-/* De afbeelding zelf */
-.Business-image img {
-    width: 100%;/* De afbeelding vult de breedte van zijn container */
-    display: block;/* Voorkomt ongewenste ruimte onder de afbeelding */
-    border-radius: 18px; /* Afgeronde hoeken */
-    border: 1px solid #d2b48c; /* Subtiele beige rand */
+.eyebrow {
+    margin: 0 0 8px;
+    /* Geen bovenmarge en 8px ruimte onder het label. */
+
+    color: var(--color-gold);
+    /* Labels gebruiken de champagnegouden accentkleur. */
+
+    font-size: 0.76rem;
+    /* Kleine tekst om de hiërarchie met de titel te behouden. */
+
+    font-weight: 700;
+    /* Vetgedrukt voor een duidelijk accent. */
+
+    letter-spacing: 0.19em;
+    /* Extra letterafstand voor de uppercase-labels. */
+
+    line-height: 1.4;
+    /* Leesbare regelafstand voor kleine tekst. */
+
+    text-transform: uppercase;
+    /* Labels worden visueel in hoofdletters weergegeven. */
 }
 
-/* Technologie Section */ 
+.heading-rule {
+    display: block;
+    /* De lijn neemt een eigen regel in. */
 
-.Technology {
-    padding: 90px 3%; /* Algemene ruimte rondom de Technology-sectie */
-    border: 1px solid #c9a66b; /* Dunne goudkleurige rand */
-    border-radius: 30px 30px 30px 30px; /* Afgeronde bovenhoeken */
+    width: 66px;
+    /* Vaste breedte voor een compact accent. */
 
+    height: 3px;
+    /* De lijn is 3px dik. */
+
+    margin-top: 20px;
+    /* 20px afstand onder de titel. */
+
+    border-radius: 99px;
+    /* Hoge radius maakt de uiteinden volledig afgerond. */
+
+    background-color: var(--color-gold);
+    /* Goudkleurige lijn in de bestaande huisstijl. */
 }
 
-.Technology h1{
-    margin-bottom: 30px; /* Ruimte onder de ondertittel */
-    font-size: 45px; /* Maakt de titel groter */
-    margin-top: -30px; /* Schuift de titel omhoog */
-}
+.section-subtitle {
+    margin-top: 22px;
+    /* Ruimte tussen de divider en de subtitel. */
 
-/* Technology titel */
-.Technology h2 {
-    margin-bottom: 5px; /* Kleine ruimte onder de titel */
-}
+    color: var(--color-text);
+    /* De subtitel gebruikt warm wit. */
 
-/* Tekst links en afbeelding rechts */
-.Technology-content {
-    display: flex; /* Zet tekst en afbeelding naast elkaar */
-    align-items: center; /* Centreert tekst en afbeelding verticaal */
-    justify-content: space-between; /*verdeelt de ruimte of /* Tekst links, foto rechts */ */ 
-    gap: 50px; /* Ruimte tussen tekst en afbeelding */
-}
+    font-family: Georgia, "Times New Roman", serif;
+    /* Zelfde serifstijl als de hoofdingen. */
 
-/* Tekstgedeelte links */
-.Technology-text {
-    width: 55%; /* Tekst neemt de helft van de ruimte in */
-}
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    /* Schaalbaar tussen 1,2rem en 1,65rem. */
 
-.Technology-text p {
-    font-family: Arial, Helvetica, sans-serif; /* Leesbaar lettertype */
-    font-size: 20px; /* Grootte van de tekst */
-    line-height: 1.5; /* Meer ruimte tussen tekstregels */
-    margin-bottom: 35px; /* Ruimte tussen de paragrafen */ 
-
-}
-
-/* Afbeeldingscontainer rechts */
-.Technology-image {
-    width: 40% !important; /* Afbeelding neemt de helft van de ruimte in */
-    display: flex; /* Zet de foto's in een flex-container */
-    height: 275px; /* Hoogte van het afbeeldingskader */
-    overflow: hidden; /* Snijdt de afbeelding netjes bij */
-    gap: 30px; /* Ruimte tussen de twee foto's */
-    border-radius: 18px;
-    box-sizing: border-box; 
-   
-}
-
-/* Afbeelding zelf */
-.Technology-image img {
-    width: 100% !important; /* Afbeelding vult de volledige breedte */
-    height: 100%; /* Afbeelding vult de volledige hoogte */
-    object-fit: cover; /* Snijdt afbeelding bij zonder vervorming */
-    display: block; /* Voorkomt extra ruimte onder de afbeelding */
-    border: 1px solid #d2b48c; /* Mooie subtiele rand */
-    border-radius: 18px; /* Afgeronde hoeken */
-   
-    overflow: hidden; 
+    line-height: 1.4;
+    /* Iets compactere regelafstand voor de grotere subtitel. */
 }
 
 
-/* Contactformulier*/
+/* ==========================================================
+   6. ABOUT
+   Tekst links, foto's rechts.
+   ========================================================== */
 
-/*contact section */ /* Momenteel vul ik hier nog niets */
-.Contact {
-    display: flex; /* Zet formulier en foto naast elkaar */
-    gap: 65px;
-    border: 1px solid rgba(240, 208, 138, 0.6);/* Voegt een dunne, lichtgouden rand rond de container toe */
-    padding: 35px; /* Ruimte tussen de inhoud en de rand */
-    box-sizing: border-box; 
-    align-items: center; /* Centreert ze verticaal */
+.about-content {
+    display: grid;
+    /* CSS Grid maakt twee afzonderlijke inhoudskolommen mogelijk. */
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(300px, 0.85fr);
+    /* Tekstkolom krijgt verhouding 1,15.
+       Fotokolom krijgt verhouding 0,85 en minstens 300px.
+       minmax(0, ...) voorkomt dat lange tekst de kolom forceert. */
+
+    align-items: stretch;
+    /* Beide kolommen mogen de beschikbare hoogte benutten. */
+
+    gap: clamp(36px, 5vw, 72px);
+    /* Ruimte tussen tekst en foto's: 36px tot 72px. */
+
+    padding: clamp(30px, 4.5vw, 58px);
+    /* Interne ruimte groeit mee van 30px tot maximaal 58px. */
+
+    border: 1px solid var(--color-border);
+    /* Dunne goudkleurige rand rond het About-paneel. */
+
+    border-radius: var(--radius-large);
+    /* 28px afronding volgens de centrale ontwerpvariabele. */
+
+    background-color: var(--color-panel);
+    /* Transparant donkerbruin zodat de houtbruine basis zichtbaar blijft. */
+
+    box-shadow: var(--shadow-soft);
+    /* Zachte schaduw geeft het paneel visuele diepte. */
 }
 
-/* Het formulier ZELF */ /* OPGELET: Zoek een <form> die binnen een element met class Contact zit. */
-.Contact form{
-    display: flex; /* Zet alle elementen onder elkaar */
-    flex-direction: column;   /* Richt de elementen verticaal */
-    gap: 15px;  /* Ruimte tussen de elementen vertikaal */
-    max-width: 600px; /* Nee, max-width is niet verplicht. Het is vooral bedoeld om te voorkomen dat je formulier op een groot scherm te breed wordt. */
-    Margin-left: auto;  /* Duwt het formulier naar rechts */
+.about-text {
+    min-width: 0;
+    /* Laat de tekstkolom krimpen zonder de grid te verbreden. */
 
+    color: var(--color-text);
+    /* Basis tekstkleur is warm wit. */
+
+    font-size: 1rem;
+    /* Standaardlettergrootte. */
+
+    line-height: 1.85;
+    /* Ruime regelafstand voor langere biografische tekst. */
 }
 
-.Contact h1 {
-    margin-left: auto; /* Dut de H1 naar rzchts */
-    width: 600px; 
+.about-text p {
+    margin-bottom: 1.25em;
+    /* Extra ruimte tussen paragrafen. */
+
+    color: var(--color-text-soft);
+    /* Iets zachtere tekstkleur dan de titels. */
 }
 
-.Contact-content {
-    width: 50%; /* Neemt de helft van de Contact-sectie in */
-  
-    border: 1px solid rgba(240, 138, 145, 0.6);
-    border-radius: 30px;
-    padding: 50px; /* Ruimte tussen de inhoud en de rand */
-    border: 1px solid rgba(240, 208, 138, 0.6);/* Voegt een dunne, lichtgouden rand rond de container toe */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Zachte schaduw rond de rand */
+/* De fotokolom stapelt beide foto's verticaal. */
+.about-images {
+    display: flex;
+    /* Activeert Flexbox voor de fotokolom. */
+
+    flex-direction: column;
+    /* Plaatst de foto's boven elkaar. */
+
+    justify-content: space-between;
+    /* Verdeelt de vrije ruimte tussen de foto's. */
+
+    align-self: stretch;
+    /* Laat de kolom de beschikbare hoogte benutten. */
+
+    width: 100%;
+    /* De fotokolom vult de breedte van de gridkolom. */
+
+    min-width: 0;
+    /* Voorkomt dat de fotokolom de grid breder maakt. */
+
+    gap: 60px;
+    /* Minstens 60px tussenruimte wanneer de kolom voldoende ruimte heeft. */
 }
 
-/* Container van de foto */
-.Contact > div:first-child {
-    width: 45%;                 /* Geeft de foto-container 45% van de ruimte */
+.about-images img {
+    display: block;
+    /* Verwijdert ongewenste inline-afbeeldingsruimte. */
+
+    width: 100%;
+    /* Elke foto gebruikt de volledige kolombreedte. */
+
+    height: auto;
+    /* De hoogte volgt de beeldverhouding van de bronafbeelding. */
+
+    aspect-ratio: 4 / 3;
+    /* Vraagt een kaderverhouding van 4:3. */
+
+    object-fit: cover;
+    /* Vult het kader zonder vervorming; randen kunnen worden bijgesneden. */
+
+    border: 1px solid var(--color-sand);
+    /* Dunne zandkleurige rand. */
+
+    border-radius: var(--radius-medium);
+    /* 18px afronding voor foto's. */
+
+    box-shadow: 0 12px 28px rgba(30, 18, 9, 0.16);
+    /* 12px verticale schaduw, 28px vervaging, 16% dekking. */
+
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease;
+    /* Laat positie en schaduw binnen 220ms vloeiend veranderen. */
+}
+
+.about-images img:hover {
+    transform: translateY(-3px);
+    /* Verplaatst de foto 3px omhoog bij hover. */
+
+    box-shadow: 0 18px 34px rgba(30, 18, 9, 0.22);
+    /* Iets grotere schaduw bij hover. */
 }
 
 
-/* De foto zelf */
-.Contact img {
-    width: 100%;                /* Laat de foto de container volledig vullen */
-    display: block;             /* Verwijdert ongewenste ruimte onder de foto */
-    border-radius: 18px; /* Afgeronde hoeken */
-    border: 1px solid #d2b48c; /* Subtiele beige rand */
+/* ==========================================================
+   7. BUSINESS
+   De juiste foto links, de drie pijlers rechts.
+   ========================================================== */
+
+.business-content {
+    display: grid;
+    /* Verdeelt de Business-sectie in foto en tekst. */
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 0.92fr);
+    /* De foto krijgt iets meer ruimte dan de tekst. */
+
+    align-items: center;
+    /* Centreert de tekstkolom verticaal ten opzichte van de foto. */
+
+    gap: clamp(36px, 5vw, 72px);
+    /* Ruimte tussen de foto en de tekst. */
 }
 
-/* Het tekstvak voor het bericht */
-.Contact textarea {
-    width: 100%;             /* Laat het tekstvak de volledige breedte gebruiken */
-    height: 120px;           /* Maakt het tekstvak groot genoeg voor een bericht */
-    resize: none;            /* Voorkomt dat de bezoeker het tekstvak groter maakt */
-    box-sizing: border-box;  /* Houdt de breedte binnen de beschikbare ruimte */
+.business-image {
+    width: 100%;
+    /* De afbeeldingscontainer vult de linkerkolom. */
+
+    min-width: 0;
+    /* Voorkomt dat de afbeelding de gridbreedte forceert. */
 }
 
-.Footer {
-    flex-direction: column;   /* Richt de elementen verticaal */
-    margin-top: 70px; /* Ruimte boven de footer */
-    padding: 45px 5% 25px; /* Ruimte binnen de footer */
-    border-top: 1px solid rgba(240, 208, 138, 0.5); /* Subtiele lijn bovenaan */
+.business-image img {
+    display: block;
+    /* Verwijdert de standaardruimte onder de afbeelding. */
+
+    width: 100%;
+    /* De foto vult de beschikbare breedte. */
+
+    height: auto;
+    /* Behoudt de natuurlijke hoogte-breedteverhouding. */
+
+    aspect-ratio: auto;
+    /* Forceert geen andere verhouding dan die van de foto. */
+
+    object-fit: contain;
+    /* Toont de volledige afbeelding binnen het kader. */
+
+    border: 1px solid var(--color-sand);
+    /* Zandkleurige omlijsting. */
+
+    border-radius: var(--radius-medium);
+    /* Afgeronde hoeken van 18px. */
+
+    box-shadow: var(--shadow-soft);
+    /* Dezelfde zachte schaduw als andere belangrijke afbeeldingen. */
 }
 
-/* Titel van de footer */
-.Footer h2 {
-    margin-bottom: 15px; /* Ruimte onder de titel */
-    font-size: 30px; /* Grootte van Maxem Group */
+.business-text {
+    min-width: 0;
+    /* Houdt de tekst binnen de rechterkolom. */
+
+    padding: clamp(8px, 2vw, 22px) 0;
+    /* Boven- en onderpadding groeit mee tussen 8px en 22px.
+       Links en rechts is de padding 0. */
+
+    color: var(--color-text);
+    /* Behoudt de oorspronkelijke warmwitte tekstkleur. */
 }
 
-/* Tekst in de footer */
-.Footer p {
-    margin: 10px 0; /* Ruimte tussen de teksten */
-    font-size: 15px; /* Kleinere, rustigere tekst */
+.business-text h2 {
+    color: var(--color-text);
+    /* De Business-titel blijft warm wit. */
 }
 
-/* E-mail */
-.Footer a {
-    color: black; /* Kleur van de link */
-    text-decoration: none; /* Geen onderlijning */
+.business-text p {
+    color: var(--color-text-soft);
+    /* Paragrafen behouden de zachtere warmwitte kleur. */
+
+    font-size: 1rem;
+    /* Standaardlettergrootte voor zakelijke tekst. */
+
+    line-height: 1.85;
+    /* Ruime regelafstand voor leesbaarheid. */
 }
 
-/* Copyright */
-.Footer p:last-child {
-    margin-top: 30px; /* Meer ruimte boven copyright */
-    font-size: 12px; /* Klein copyright */
-    opacity: 0.6; /* Subtiel */
+.business-text .heading-rule {
+    margin-bottom: 28px;
+    /* Ruimte tussen de gouden lijn en de eerste paragraaf. */
+}
+
+.business-text strong {
+    color: var(--color-text);
+    /* De namen van de drie pijlers krijgen de heldere tekstkleur. */
 }
 
 
+/* ==========================================================
+   8. TECHNOLOGY
+   Tekst links en technologiebeeld rechts.
+   ========================================================== */
+
+.technology-section {
+    padding: clamp(30px, 5vw, 64px);
+    /* Interne ruimte tussen 30px en 64px. */
+
+    border: 1px solid var(--color-gold-muted);
+    /* Subtiele goudkleurige omlijsting. */
+
+    border-radius: var(--radius-large);
+    /* Afronding van 28px. */
+
+    background-color: rgba(70, 45, 25, 0.13);
+    /* Zeer transparant donkerbruin voor een subtiel paneel. */
+}
+
+.technology-section .section-heading {
+    margin-bottom: 38px;
+    /* Ruimte tussen de titel en de twee kolommen. */
+}
+
+.technology-content {
+    display: grid;
+    /* Verdeelt tekst en afbeelding in kolommen. */
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(260px, 0.8fr);
+    /* De tekstkolom is breder; de afbeelding krijgt minstens 260px. */
+
+    align-items: start;
+    /* Beide kolommen beginnen bovenaan. */
+
+    gap: clamp(30px, 5vw, 64px);
+    /* Ruimte tussen tekst en afbeelding. */
+}
+
+.technology-text {
+    min-width: 0;
+    /* Voorkomt overflow van lange tekst. */
+}
+
+.technology-text p {
+    color: var(--color-text-soft);
+    /* Paragrafen gebruiken warm wit met iets minder nadruk. */
+
+    font-size: 1rem;
+    /* Standaardtekstgrootte. */
+
+    line-height: 1.85;
+    /* Leesbare regelafstand. */
+}
+
+.technology-text strong {
+    color: var(--color-text);
+    /* ERP, WMS en SSERP worden duidelijk benadrukt. */
+}
+
+.technology-image {
+    min-width: 0;
+    /* Laat de afbeelding binnen de gridkolom blijven. */
+
+    overflow: hidden;
+    /* Verbergt inhoud die buiten afgeronde randen komt. */
+
+    border: 1px solid var(--color-sand);
+    /* Zandkleurige afbeeldingsrand. */
+
+    border-radius: var(--radius-medium);
+    /* 18px afronding. */
+
+    box-shadow: var(--shadow-soft);
+    /* Zachte schaduw voor diepte. */
+}
+
+.technology-image img {
+    display: block;
+
+    width: 100%;
+    /* Volledige breedte van de afbeeldingcontainer. */
+
+    height: auto;
+    /* Natuurlijke hoogte op basis van de bron. */
+
+    aspect-ratio: 4 / 5;
+    /* Staande beeldverhouding voor het kader. */
+
+    object-fit: cover;
+    /* Vult het kader; een deel van de foto kan worden afgesneden. */
+}
 
 
+/* ==========================================================
+   9. CONTACT
+   Contactfoto naast het contactformulier.
+   ========================================================== */
+
+.contact-section {
+    display: grid;
+    /* Maakt twee kolommen voor foto en formulier. */
+
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1fr);
+    /* Het formulier krijgt iets meer breedte dan de foto. */
+
+    align-items: center;
+    /* Centreert de twee kolommen verticaal. */
+
+    gap: clamp(30px, 5vw, 64px);
+    /* Ruimte tussen foto en formulier. */
+
+    padding: clamp(24px, 4vw, 48px);
+    /* Interne ruimte schaalt mee met het scherm. */
+
+    border: 1px solid var(--color-border);
+    /* Goudkleurige rand. */
+
+    border-radius: var(--radius-large);
+    /* 28px afronding. */
+
+    background-color: var(--color-panel);
+    /* Transparant bruin paneel. */
+
+    box-shadow: var(--shadow-soft);
+    /* Zachte schaduw rond de sectie. */
+}
+
+.contact-image {
+    min-width: 0;
+    /* Voorkomt dat de foto de layout verbreedt. */
+}
+
+.contact-image img {
+    display: block;
+
+    width: 100%;
+    /* Foto vult de kolom. */
+
+    height: auto;
+    /* Behoudt de natuurlijke verhouding. */
+
+    aspect-ratio: 4 / 5;
+    /* Staand afbeeldingskader. */
+
+    object-fit: cover;
+    /* Vult het kader zonder vervorming, eventueel met uitsnijding. */
+
+    border: 1px solid var(--color-sand);
+    /* Zandkleurige rand. */
+
+    border-radius: var(--radius-medium);
+    /* 18px afronding. */
+}
+
+.contact-content {
+    min-width: 0;
+    /* Houdt het formulier binnen de beschikbare breedte. */
+}
+
+.contact-content .heading-rule {
+    margin-bottom: 24px;
+    /* Ruimte tussen divider en formulierintroductie. */
+}
+
+.contact-intro {
+    margin-bottom: 28px;
+    /* Ruimte tussen introductietekst en formulier. */
+
+    color: var(--color-text-soft);
+    /* Zachtere warmwitte tekstkleur. */
+}
+
+.contact-content form {
+    display: grid;
+    /* Formuliervelden worden verticaal gerangschikt. */
+
+    gap: 18px;
+    /* 18px tussen opeenvolgende formuliervelden. */
+}
+
+.form-field {
+    display: grid;
+    /* Label en invoerveld worden verticaal geplaatst. */
+
+    gap: 7px;
+    /* 7px tussen label en invoerveld. */
+}
+
+.form-field label {
+    color: var(--color-text);
+    /* Labels gebruiken warm wit. */
+
+    font-size: 0.9rem;
+    /* Labels zijn iets kleiner dan de invoertekst. */
+
+    font-weight: 700;
+    /* Vetgedrukt om het veld duidelijk te benoemen. */
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    /* Elk veld vult de volledige formulierbreedte. */
+
+    padding: 13px 15px;
+    /* 13px verticaal en 15px horizontaal voor comfortabele invoer. */
+
+    border: 1px solid rgba(240, 208, 138, 0.52);
+    /* Goudkleurige rand met 52% dekking. */
+
+    border-radius: 10px;
+    /* 10px afronding voor invoervelden. */
+
+    background-color: rgba(45, 28, 16, 0.28);
+    /* Transparant donkerbruin veld. */
+
+    color: var(--color-text);
+    /* De ingevoerde tekst is warm wit. */
+
+    font-family: inherit;
+    /* Gebruikt hetzelfde lettertype als de rest van de website. */
+
+    font-size: 1rem;
+    /* Invoertekst gebruikt de standaardlettergrootte. */
+
+    line-height: 1.5;
+    /* Comfortabele regelafstand. */
+
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        box-shadow 180ms ease;
+    /* Vloeiende overgangen bij focus. */
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: var(--color-gold);
+    /* De rand wordt helderder wanneer het veld actief is. */
+
+    background-color: rgba(45, 28, 16, 0.42);
+    /* Actief veld krijgt een iets donkerdere achtergrond. */
+
+    box-shadow: 0 0 0 3px rgba(240, 208, 138, 0.12);
+    /* Subtiele focusgloed van 3px met 12% dekking. */
+
+    outline: none;
+    /* De eigen focusstijl vervangt de standaard browseroutline. */
+}
+
+.form-field textarea {
+    min-height: 140px;
+    /* Het berichtveld is minstens 140px hoog. */
+
+    resize: vertical;
+    /* De bezoeker kan de hoogte aanpassen, niet de breedte. */
+}
+
+.contact-content button {
+    display: inline-flex;
+    /* Plaatst de tekst en pijl naast elkaar. */
+
+    justify-content: center;
+    /* Centreert de inhoud horizontaal. */
+
+    align-items: center;
+    /* Centreert de inhoud verticaal. */
+
+    gap: 14px;
+    /* Ruimte tussen knoptekst en pijl. */
+
+    width: fit-content;
+    /* Knop is standaard slechts zo breed als de inhoud vereist. */
+
+    min-width: 190px;
+    /* Zorgt voor een comfortabele minimale knopbreedte. */
+
+    margin-top: 4px;
+    /* Kleine afstand boven de knop. */
+
+    padding: 14px 22px;
+    /* Klikruimte binnen de knop. */
+
+    border: 1px solid var(--color-gold);
+    /* Goudkleurige rand. */
+
+    border-radius: 10px;
+    /* Afgeronde knophoeken. */
+
+    background-color: var(--color-gold);
+    /* Goudkleurige knopachtergrond. */
+
+    color: #392313;
+    /* Donkerbruine tekst voor voldoende contrast op goud. */
+
+    cursor: pointer;
+    /* Toont een handcursor om klikbaarheid aan te geven. */
+
+    font-family: inherit;
+    /* Zelfde lettertype als de website. */
+
+    font-size: 0.9rem;
+    /* Iets kleinere knoptekst. */
+
+    font-weight: 700;
+    /* Vetgedrukte tekst. */
+
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease,
+        box-shadow 180ms ease;
+    /* Vloeiende hoveranimaties. */
+}
+
+.contact-content button:hover {
+    transform: translateY(-2px);
+    /* Verplaatst de knop 2px omhoog bij hover. */
+
+    background-color: #f7dfa6;
+    /* Lichtere goudkleur tijdens hover. */
+
+    box-shadow: 0 10px 24px rgba(30, 18, 9, 0.18);
+    /* Extra schaduw bij hover. */
+}
+
+.contact-content button span {
+    font-size: 1.2rem;
+    /* De pijl is groter dan de knoptekst. */
+
+    line-height: 1;
+    /* Voorkomt onnodige verticale ruimte rond de pijl. */
+}
 
 
-/* =================================================
-   DEFINITIEVE MOBIELE VERSIE
-   ================================================= */
+/* ==========================================================
+   10. FOOTER
+   Bedrijfsnaam, contactgegevens en copyright.
+   ========================================================== */
 
-@media (max-width: 768px) {
+.site-footer {
+    display: grid;
+    /* Grid verdeelt de footer in twee hoofdblokken. */
 
-    /* =========================
-       ALGEMEEN
-       ========================= */
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+    /* Het merkblok neemt de resterende ruimte in;
+       het contactblok gebruikt de benodigde breedte. */
 
-    * {
-        box-sizing: border-box; /* Houdt padding en borders binnen de breedte */
+    align-items: start;
+    /* Beide blokken beginnen bovenaan. */
+
+    gap: 28px 40px;
+    /* 28px verticale en 40px horizontale afstand. */
+
+    margin-top: clamp(64px, 8vw, 100px);
+    /* Ruimte tussen de laatste sectie en de footer. */
+
+    padding:
+        42px
+        max(32px, calc((100% - var(--content-width)) / 2))
+        24px;
+    /* 42px boven, minimaal 32px horizontaal of gecentreerd
+       volgens de maximale contentbreedte, en 24px onder. */
+
+    border-top: 1px solid rgba(240, 208, 138, 0.5);
+    /* Goudkleurige scheidingslijn met 50% dekking. */
+
+    background-color: rgba(70, 45, 25, 0.28);
+    /* Transparant donkerbruin. */
+}
+
+.footer-brand h2 {
+    margin-bottom: 10px;
+    /* Ruimte onder de bedrijfsnaam. */
+
+    font-size: 1.8rem;
+    /* Footerbedrijfsnaam is kleiner dan hoofdsectietitels. */
+}
+
+.footer-brand p {
+    max-width: 430px;
+    /* Voorkomt dat de tagline onnodig lange regels krijgt. */
+
+    margin: 0;
+    /* Verwijdert de standaard paragraafmarge. */
+
+    color: var(--color-text-soft);
+    /* Zachtere warmwitte kleur. */
+
+    font-size: 0.95rem;
+    /* Iets kleinere footertekst. */
+}
+
+.footer-contact {
+    padding-top: 5px;
+    /* Kleine verticale uitlijning met het merkblok. */
+}
+
+.footer-contact a {
+    color: var(--color-text);
+    /* E-mailadres wordt warm wit weergegeven. */
+
+    text-decoration-color: rgba(240, 208, 138, 0.65);
+    /* Goudkleurige onderlijn met 65% dekking. */
+
+    text-underline-offset: 4px;
+    /* Vier pixels ruimte tussen tekst en onderlijn. */
+
+    overflow-wrap: anywhere;
+    /* Lange e-mailadressen kunnen afbreken op smalle schermen. */
+}
+
+.footer-contact a:hover {
+    color: var(--color-gold);
+    /* Het e-mailadres wordt goudkleurig bij hover. */
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    /* Copyright gebruikt de volledige breedte van de grid. */
+
+    margin: 8px 0 0;
+    /* 8px bovenmarge; geen horizontale of ondermarge. */
+
+    padding-top: 20px;
+    /* Ruimte boven de copyrighttekst. */
+
+    border-top: 1px solid rgba(240, 208, 138, 0.2);
+    /* Zeer subtiele scheidingslijn. */
+
+    color: rgba(255, 248, 237, 0.7);
+    /* Warm wit met 70% dekking. */
+
+    font-size: 0.78rem;
+    /* Kleine, secundaire tekst. */
+}
+
+
+/* ==========================================================
+   11. TABLET
+   Onder 900px worden marges en kolommen compacter.
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .section-shell {
+        width: calc(100% - 48px);
+        /* Laat 24px ruimte aan beide kanten. */
+
+        margin-top: 68px;
+        /* Beperkt de verticale afstand tussen secties. */
     }
+
+    .about-content {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(230px, 0.75fr);
+        /* Tekst en foto's blijven naast elkaar,
+           maar de fotokolom krijgt een minimum van 230px. */
+
+        gap: 32px;
+        /* Ruimte tussen beide kolommen. */
+
+        padding: 30px;
+        /* Compactere binnenruimte op tablet. */
+    }
+
+    .about-images {
+        gap: 45px;
+        /* Fotoafstand wordt 45px op tablet. */
+    }
+
+    .business-content {
+        gap: 32px;
+        /* Minder ruimte tussen Business-foto en tekst. */
+    }
+
+    .technology-content {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(220px, 0.72fr);
+        /* De tekst krijgt meer ruimte dan de afbeelding. */
+
+        gap: 28px;
+        /* Compactere kolomafstand. */
+    }
+
+    .contact-section {
+        gap: 28px;
+        /* Minder ruimte tussen contactfoto en formulier. */
+
+        padding: 28px;
+        /* Compactere binnenruimte. */
+    }
+
+    .site-footer {
+        padding-right: 24px;
+        /* Houdt 24px ruimte aan de rechterkant. */
+
+        padding-left: 24px;
+        /* Houdt 24px ruimte aan de linkerkant. */
+    }
+}
+
+
+/* ==========================================================
+   12. MOBIEL
+   Onder 680px worden de belangrijkste kolommen gestapeld.
+   ========================================================== */
+
+@media (max-width: 680px) {
 
     body {
-        margin: 0; /* Verwijdert standaard marge */
-        width: 100%; /* Gebruikt de volledige schermbreedte */
-        overflow-x: hidden; /* Voorkomt horizontaal scrollen */
-        background-color: #8B5E3C; /* Behoudt de houtbruine achtergrond */
+        font-size: 15px;
+        /* Een iets kleinere basislettergrootte op mobiel. */
+
+        line-height: 1.7;
+        /* Behoudt de leesbaarheid van langere teksten. */
     }
 
-
-    /* =========================
-       NAVIGATIE
-       ========================= */
-
-    nav {
-        width: 100%; /* Navbar gebruikt de volledige breedte */
-        padding: 18px 8px; /* Compactere navbar op mobiel */
-        background-color: rgba(70, 45, 25, 0.65); /* Behoudt de bruine transparante kleur */
+    .site-nav {
+        padding: 14px 12px;
+        /* Minder binnenruimte in de navigatiebalk. */
     }
 
-    nav ul {
-        display: flex; /* Zet de menu-items naast elkaar */
-        flex-direction: row; /* Houdt de items horizontaal */
-        justify-content: center; /* Centreert de navigatie */
-        align-items: center; /* Centreert de items verticaal */
-        gap: 10px; /* Ruimte tussen de menu-items */
-        list-style: none; /* Verwijdert bolletjes */
-        margin: 0; /* Verwijdert standaard marge */
-        padding: 0; /* Verwijdert standaard padding */
-        width: 100%; /* Gebruikt de beschikbare breedte */
-        white-space: nowrap; /* Voorkomt dat woorden naar een tweede regel gaan */
+    .site-nav ul {
+        gap: 5px 17px;
+        /* Compactere verticale en horizontale afstand. */
     }
 
-    nav li {
-        margin: 0; /* Verwijdert standaard marge */
-        padding: 0; /* Verwijdert standaard padding */
-        flex-shrink: 1; /* Laat items indien nodig iets verkleinen */
-    }
+    .site-nav a {
+        padding: 5px 0;
+        /* Behoudt verticale klikruimte zonder extra horizontale padding. */
 
-    nav a {
-        display: block; /* Maakt de volledige link klikbaar */
-        color: #f0d08a; /* Behoudt de gouden kleur */
-        text-decoration: none; /* Verwijdert onderlijning */
-        font-size: 14px; /* Compacte tekst voor mobiel */
-        letter-spacing: 1px; /* Behoudt de elegante letterafstand */
-        white-space: nowrap; /* Houdt elk menu-item op één regel */
-    }
+        font-size: 0.72rem;
+        /* Kleinere navigatietekst. */
 
-
-    /* =========================
-       HERO
-       ========================= */
-
-    .hero {
-        width: 100%; /* Hero vult het scherm */
-        position: relative; /* Behoudt de bestaande structuur */
+        letter-spacing: 0.08em;
+        /* Minder letterafstand op kleine schermen. */
     }
 
     .hero img {
-        width: 100%; /* Foto vult de breedte */
-        height: auto; /* Behoudt de verhouding */
-        display: block; /* Verwijdert ruimte onder de foto */
+        width: 100%;
+        /* De kantoorafbeelding vult het scherm. */
+
+        height: auto;
+        /* Behoudt de natuurlijke beeldverhouding. */
+
+        max-height: none;
+        /* Geen geforceerde hoogtebeperking. */
     }
 
+    .section-shell {
+        width: calc(100% - 32px);
+        /* Laat 16px marge links en rechts. */
 
-    /* =========================
-       ABOUT
-       ========================= */
-
-    .About {
-        display: block; /* Zet de inhoud onder elkaar */
-        width: calc(100% - 30px); /* Houdt 15px ruimte aan beide kanten */
-        margin: 30px 15px 0; /* Ruimte boven de About-sectie */
-        font-family: Georgia, serif; /* Behoudt je desktop-lettertype */
-        font-size: 20px; /* Past de algemene tekstgrootte aan */
+        margin-top: 52px;
+        /* Minder verticale afstand tussen secties. */
     }
 
-    .About h1 {
-        font-size: 32px; /* Maakt de titel passend voor mobiel */
-        margin-bottom: 20px; /* Ruimte onder de titel */
+    .section-heading {
+        margin-bottom: 24px;
+        /* Minder ruimte onder de sectietitel. */
     }
 
-    .About p {
-        font-family: Arial, Helvetica, sans-serif; /* Behoudt je tekstlettertype */
-        font-size: 17px; /* Leesbare tekst op mobiel */
-        line-height: 1.6; /* Geeft voldoende ruimte tussen regels */
+    h1,
+    h2 {
+        font-size: clamp(2rem, 9vw, 2.65rem);
+        /* Koppen schalen met de schermbreedte,
+           met een minimum van 2rem en maximum van 2,65rem. */
     }
 
-    .About-content {
-        display: flex; /* Behoudt de bestaande flexstructuur */
-        flex-direction: column; /* Tekst en foto's onder elkaar */
-        align-items: stretch; /* Laat alles de beschikbare breedte gebruiken */
-        gap: 30px; /* Ruimte tussen tekst en foto's */
-        width: 100%; /* Gebruikt de beschikbare breedte */
-        padding: 25px; /* Ruimte binnen de border */
-        border: 1px solid rgba(240, 208, 138, 0.6); /* Behoudt de gouden rand */
-        border-radius: 30px; /* Behoudt de afgeronde hoeken */
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Behoudt de schaduw */
-        overflow: hidden; /* Houdt alles binnen de afgeronde hoeken */
+    .heading-rule {
+        width: 54px;
+        /* Kortere accentlijn op mobiel. */
+
+        margin-top: 15px;
+        /* Kleinere afstand onder de kop. */
     }
 
-    .About-text {
-        width: 100%; /* Tekst gebruikt de volledige breedte */
+    .about-content,
+    .business-content,
+    .technology-content,
+    .contact-section {
+        grid-template-columns: minmax(0, 1fr);
+        /* Iedere hoofdsectie wordt één kolom.
+           Tekst en afbeeldingen komen onder elkaar te staan. */
     }
 
-    .About-images {
-        width: 100%; /* Foto's gebruiken de volledige breedte */
-        display: flex; /* Gebruikt flexbox */
-        flex-direction: column; /* Foto's onder elkaar */
-        gap: 25px; /* Ruimte tussen de foto's */
+    .about-content {
+        gap: 30px;
+        /* Ruimte tussen de tekst en de fotokolom. */
+
+        padding: 22px;
+        /* Binnenruimte van 22px op mobiel. */
+
+        border-radius: 22px;
+        /* Iets kleinere afronding dan op desktop. */
     }
 
-    .About-images img {
-        width: 100%; /* Foto vult de fotocontainer */
-        height: auto; /* Behoudt de originele verhouding */
-        display: block; /* Verwijdert ongewenste ruimte */
-        object-fit: cover; /* Zorgt voor een nette vulling */
-        border-radius: 18px; /* Afgeronde hoeken */
-        border: 1px solid #d2b48c; /* Subtiele beige rand */
+    .about-text {
+        font-size: 0.96rem;
+        /* Licht verkleinde biografische tekst. */
+
+        line-height: 1.8;
+        /* Voldoende regelafstand op smalle schermen. */
     }
 
+    .about-images {
+        display: flex;
+        /* Behoudt de Flexbox-fotokolom. */
 
-    /* =========================
-       BUSINESS
-       ========================= */
+        flex-direction: column;
+        /* Foto's blijven onder elkaar staan. */
 
-    .Business-content {
-        display: flex; /* Behoudt de bestaande structuur */
-        flex-direction: column; /* Zet foto en tekst onder elkaar */
-        align-items: center; /* Centreert de inhoud */
-        gap: 30px; /* Ruimte tussen foto en tekst */
-        width: 100%; /* Gebruikt de beschikbare breedte */
-        padding: 20px; /* Ruimte aan de zijkanten */
-        font-size: 20px; /* Tekst passend voor mobiel */
+        justify-content: flex-start;
+        /* Geen automatische verdeling over extra hoogte op mobiel. */
+
+        gap: 30px;
+        /* 30px ruimte tussen de twee foto's. */
+
+        height: auto;
+        /* De kolom krijgt de hoogte die de foto's nodig hebben. */
     }
 
-    .Business-image {
-        width: 100%; /* Overschrijft de desktop 120% */
-        max-width: 100%; /* Voorkomt dat de foto buiten het scherm komt */
+    .about-images img {
+        width: 100%;
+        /* Foto's vullen de mobiele kolom. */
+
+        height: auto;
+        /* Hoogte wordt automatisch bepaald. */
+
+        aspect-ratio: 5 / 3;
+        /* Breder landschapskader op mobiel. */
     }
 
-    .Business-image img {
-        width: 100%; /* Foto vult de container */
-        height: auto; /* Behoudt de verhouding */
-        display: block; /* Verwijdert ongewenste ruimte */
-        border-radius: 18px; /* Behoudt de afgeronde hoeken */
-        border: 1px solid #d2b48c; /* Behoudt de beige rand */
+    .business-content {
+        gap: 26px;
+        /* Ruimte tussen Business-foto en tekst wanneer ze gestapeld zijn. */
     }
 
+    .business-image img {
+        width: 100%;
+        /* Business-foto vult de mobiele breedte. */
 
-    /* =========================
-       TECHNOLOGY
-       ========================= */
+        height: auto;
+        /* Behoudt de natuurlijke verhouding. */
 
-    .Technology {
-        width: calc(100% - 30px); /* Houdt 15px ruimte aan beide kanten */
-        margin: 30px 15px 0; /* Geeft ruimte boven de sectie */
-        padding: 45px 20px; /* Past de desktop-padding aan */
-        border: 1px solid #c9a66b; /* Behoudt de gouden rand */
-        border-radius: 30px; /* Behoudt de afgeronde hoeken */
+        aspect-ratio: auto;
+        /* Geen geforceerde uitsnede voor de Business-foto. */
     }
 
-    .Technology h1 {
-        font-size: 32px; /* Past de titel aan voor mobiel */
-        margin-bottom: 20px; /* Ruimte onder de titel */
+    .business-text {
+        padding: 0 4px;
+        /* Kleine horizontale ruimte rond de tekst. */
     }
 
-    .Technology h2 {
-        font-size: 21px; /* Maakt de subtitel passend */
-        margin-bottom: 20px; /* Ruimte onder de subtitel */
+    .business-text p,
+    .technology-text p {
+        font-size: 0.96rem;
+        /* Licht verkleinde tekst voor mobiele leesbaarheid. */
+
+        line-height: 1.8;
+        /* Regelafstand blijft ruim genoeg voor lange paragrafen. */
     }
 
-    .Technology-content {
-        display: flex; /* Behoudt flexbox */
-        flex-direction: column; /* Tekst boven foto */
-        align-items: stretch; /* Gebruikt de beschikbare breedte */
-        gap: 30px; /* Ruimte tussen tekst en foto */
+    .technology-section {
+        padding: 25px 21px;
+        /* 25px boven/onder en 21px links/rechts. */
+
+        border-radius: 22px;
+        /* Kleinere afgeronde hoeken. */
     }
 
-    .Technology-text {
-        width: 100%; /* Tekst gebruikt volledige breedte */
+    .technology-section .section-heading {
+        margin-bottom: 25px;
+        /* Ruimte onder de titel van de Technology-sectie. */
     }
 
-    .Technology-text p {
-        font-family: Arial, Helvetica, sans-serif; /* Leesbaar lettertype */
-        font-size: 17px; /* Geschikte tekstgrootte */
-        line-height: 1.6; /* Meer ruimte tussen regels */
-        margin-bottom: 25px; /* Ruimte tussen paragrafen */
+    .section-subtitle {
+        font-size: 1.2rem;
+        /* Subtitel blijft leesbaar op mobiel. */
     }
 
-    .Technology-image {
-        width: 100% !important; /* Foto gebruikt volledige mobiele breedte */
-        height: 275px; /* Behoudt jouw gekozen hoogte */
-        display: flex; /* Behoudt flexbox */
-        overflow: hidden; /* Houdt foto binnen de afgeronde rand */
-        gap: 25px; /* Ruimte tussen foto's indien nodig */
-        border-radius: 18px; /* Afgeronde hoeken */
+    .technology-image img {
+        width: 100%;
+        /* Technologieafbeelding vult de kolom. */
+
+        height: auto;
+        /* Behoudt de natuurlijke verhouding. */
+
+        aspect-ratio: 5 / 4;
+        /* Breder kader voor de mobiele weergave. */
     }
 
-    .Technology-image img {
-        width: 100% !important; /* Foto vult de container */
-        height: 100%; /* Foto vult de hoogte van het kader */
-        object-fit: cover; /* Vult het kader zonder vervorming */
-        display: block; /* Verwijdert ongewenste ruimte */
-        border: 1px solid #d2b48c; /* Beige rand */
-        border-radius: 18px; /* Afgeronde hoeken */
+    .contact-section {
+        gap: 24px;
+        /* Ruimte tussen contactfoto en formulier. */
+
+        padding: 20px;
+        /* Compactere binnenruimte. */
+
+        border-radius: 22px;
+        /* Kleinere afronding op mobiel. */
     }
 
+    .contact-image img {
+        width: 100%;
+        /* Contactfoto vult de breedte. */
 
-    /* =========================
-       CONTACT
-       ========================= */
+        height: auto;
+        /* Behoudt de natuurlijke hoogte-breedteverhouding. */
 
-    .Contact {
-        display: flex; /* Behoudt flexbox */
-        flex-direction: column; /* Foto en formulier onder elkaar */
-        gap: 30px; /* Ruimte tussen beide onderdelen */
-        width: calc(100% - 30px); /* Houdt 15px ruimte aan beide kanten */
-        margin: 30px 15px 0; /* Ruimte boven de sectie */
-        padding: 25px; /* Ruimte binnen de container */
-        border: 1px solid rgba(240, 208, 138, 0.6); /* Gouden rand */
-        border-radius: 30px; /* Afgeronde hoeken */
-        box-sizing: border-box; /* Houdt alles binnen de breedte */
-        align-items: stretch; /* Laat alles de beschikbare breedte gebruiken */
+        aspect-ratio: 5 / 3;
+        /* Landschapskader op mobiel. */
     }
 
-    .Contact > div:first-child {
-        width: 100%; /* Foto gebruikt volledige breedte */
+    .contact-content button {
+        width: 100%;
+        /* De verzendknop vult de beschikbare breedte. */
     }
 
-    .Contact img {
-        width: 100%; /* Foto vult de container */
-        height: auto; /* Behoudt de verhouding */
-        display: block; /* Verwijdert ongewenste ruimte */
-        border-radius: 18px; /* Afgeronde hoeken */
-        border: 1px solid #d2b48c; /* Beige rand */
+    .site-footer {
+        grid-template-columns: minmax(0, 1fr);
+        /* Footerblokken komen onder elkaar. */
+
+        gap: 24px;
+        /* Ruimte tussen de footerblokken. */
+
+        margin-top: 54px;
+        /* Afstand tussen de laatste sectie en de footer. */
+
+        padding: 32px 22px 20px;
+        /* 32px boven, 22px horizontaal, 20px onder. */
     }
 
-    .Contact-content {
-        width: 100%; /* Formulier gebruikt volledige breedte */
-        padding: 25px; /* Ruimte binnen het formulier */
-        border: 1px solid rgba(240, 208, 138, 0.6); /* Gouden rand */
-        border-radius: 30px; /* Afgeronde hoeken */
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Zachte schaduw */
-        box-sizing: border-box; /* Houdt padding binnen de breedte */
+    .copyright {
+        grid-column: auto;
+        /* Copyright gebruikt zijn eigen rij in de mobiele grid. */
     }
-
-    .Contact h1 {
-        width: 100%; /* Titel gebruikt de beschikbare breedte */
-        margin: 0 0 20px 0; /* Ruimte onder de titel */
-        font-size: 32px; /* Mobiele titelgrootte */
-    }
-
-    .Contact form {
-        display: flex; /* Maakt het formulier flexibel */
-        flex-direction: column; /* Velden onder elkaar */
-        gap: 15px; /* Ruimte tussen de velden */
-        width: 100%; /* Formulier vult de container */
-        max-width: none; /* Verwijdert desktop-beperking */
-        margin: 0; /* Verwijdert automatische marge */
-        box-sizing: border-box; /* Houdt alles binnen de breedte */
-    }
-
-    .Contact input {
-        width: 100%; /* Input vult het formulier */
-        padding: 14px; /* Ruimte binnen het veld */
-        box-sizing: border-box; /* Houdt padding binnen de breedte */
-    }
-
-    .Contact textarea {
-        width: 100%; /* Tekstvak vult het formulier */
-        height: 120px; /* Voldoende ruimte voor bericht */
-        padding: 14px; /* Ruimte binnen het tekstvak */
-        resize: none; /* Voorkomt uitrekken */
-        box-sizing: border-box; /* Houdt alles binnen de breedte */
-    }
-
-    .Contact button {
-        width: 100%; /* Knop vult het formulier */
-        padding: 14px; /* Maakt de knop makkelijk aanklikbaar */
-        box-sizing: border-box; /* Houdt de knop binnen de container */
-    }
-
-
-    /* =========================
-       FOOTER
-       ========================= */
-
-    .footer {
-        width: 100%; /* Footer gebruikt volledige breedte */
-        margin-top: 60px; /* Ruimte boven de footer */
-        padding: 35px 20px 20px; /* Ruimte binnen de footer */
-        border-top: 1px solid rgba(240, 208, 138, 0.5); /* Subtiele bovenlijn */
-        box-sizing: border-box; /* Houdt alles binnen de schermbreedte */
-    }
-
-    .footer h2 {
-        margin-bottom: 15px; /* Ruimte onder Maxem Group */
-        font-size: 26px; /* Iets kleinere titel op mobiel */
-    }
-
-    .footer p {
-        margin: 10px 0; /* Ruimte tussen de teksten */
-        font-size: 15px; /* Leesbare footertekst */
-        line-height: 1.5; /* Ruimte tussen regels */
-    }
-
-    .footer a {
-        color: black; /* Behoudt de bestaande kleur */
-        text-decoration: none; /* Geen onderlijning */
-        font-size: 14px; /* Compacte links */
-    }
-
 }
 
 
+/* ==========================================================
+   13. ZEER SMALLE MOBIELE SCHERMEN
+   Extra aanpassingen voor telefoons smaller dan 380px.
+   ========================================================== */
+
+@media (max-width: 380px) {
+
+    .site-nav ul {
+        column-gap: 11px;
+        /* Kleinere horizontale afstand tussen navigatielinks. */
+    }
+
+    .site-nav a {
+        font-size: 0.67rem;
+        /* Kleinere navigatietekst op smalle schermen. */
+
+        letter-spacing: 0.04em;
+        /* Minder letterafstand om de links te laten passen. */
+    }
+
+    .about-content,
+    .technology-section,
+    .contact-section {
+        padding: 18px;
+        /* Minder binnenruimte om inhoud beschikbaar te houden. */
+    }
+
+    .about-images {
+        gap: 24px;
+        /* Iets kleinere afstand tussen foto's op zeer smalle schermen. */
+    }
+}
 
 
+/* ==========================================================
+   14. TOEGANKELIJKHEID — MINDER BEWEGING
+   Respecteert de voorkeur van bezoekers die animaties beperken.
+   ========================================================== */
 
+@media (prefers-reduced-motion: reduce) {
 
+    html {
+        scroll-behavior: auto;
+        /* Geen vloeiende scrollanimatie wanneer beweging beperkt is. */
+    }
 
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        /* Schakelt vloeiend scrollen ook bij andere elementen uit. */
+
+        transition-duration: 0.01ms !important;
+        /* Maakt overgangen vrijwel onmiddellijk. */
+
+        animation-duration: 0.01ms !important;
+        /* Verkort animaties tot vrijwel nul. */
+
+        animation-iteration-count: 1 !important;
+        /* Voorkomt herhaald afspelen van animaties. */
+    }
+}
